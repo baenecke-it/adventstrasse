@@ -1,12 +1,13 @@
-<script>
-    export let right = false;
+<script lang="ts">
+    export let right: boolean | null = false;
     export let id = '';
     export let anchor = '.5';
     export let offsetX = '75%';
     export let rotation = -30;
+    export let scale = 1;
 </script>
 
-<section id="{id}" class="scroll-section {right ? 'right' : ''}" data-anchor="{anchor}" data-offset-x="{offsetX}" data-rotation="{rotation}">
+<section id="{id}" class="scroll-section {right === null ? 'full' : (right ? 'right' : '')}" data-anchor="{anchor}" data-offset-x="{offsetX}" data-rotation="{rotation}" data-scale={scale}>
     <div class="container">
         <slot></slot>
     </div>
@@ -14,39 +15,26 @@
 
 <style>
     .scroll-section {
-        position: absolute;
+        position: relative;
         height: 100vh;
-        width: 50vw;
+        width: 100vw;
         overflow: hidden;
         display: flex;
         align-items: center;
+        justify-content: flex-start;
 
-        &:not(:first-of-type) {
-            width: 0;
+        &.right {
+            justify-content: flex-end;
         }
 
         .container {
-            position: absolute;
-            width: 50vw;
+            position: relative;
+            width: 50%;
             height: 100%;
         }
 
-        &.right {
-            right: 0;
-            .container {
-                right: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            position: relative;
-            width: 100% !important;
-            height: auto;
-            top: 0;
-            .container {
-                position: relative;
-                width: 100%;
-            }
+        &.full .container {
+            width: 100%;
         }
     }
 </style>

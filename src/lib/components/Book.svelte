@@ -21,6 +21,9 @@
 
     export let initialRotation: number = -30;
     export let transition: boolean = true;
+    export let hover: boolean = true;
+
+    export let containerWidth: number = width;
 
     export function setRotation(deg: number) {
         const book = document.querySelector<HTMLElement>('.book');
@@ -50,16 +53,16 @@
     }
 
     .book {
-        width: 100%; /*TODO: 90%, but then pages offset und so muss angepasst werden */
-        height: 100%;
-        position: relative;
+        width: var(--width, 100%);
+        height: var(--height, 100%);
+        position: absolute;
         transform-style: preserve-3d;
         transform: rotateY(var(--initial-rotation, -30deg));
         transition: var(--transition);
         /*animation: 1s ease 0s 1 initAnimation;*/
 
-        .book-container:hover &,
-        .book-container:focus & {
+        .book-container.hover:hover &,
+        .book-container.hover:focus & {
             transform: rotateY(0deg);
         }
 
@@ -153,13 +156,15 @@
 </style>
 
 <a
-        class="book-container"
+        class="book-container {hover ? 'hover' : ''}"
         href="#buy"
         target="_blank"
         rel="noreferrer noopener"
         style="--cover-color: {coverColor};
                 --book-shadow: {shadow ? '-10px 0 50px 10px #666' : 'none'};
                 --spine-writing-mode: {spineDir ? 'sideways-rl' : 'sideways-lr'};
+                --width: {width * scale}{unit};
+                --height: {height * scale}{unit};
                 --depth: {depth * scale}{unit};
                 --cover-offset: {depth * scale / 2}{unit};
                 --backcover-offset: -{depth * scale / 2}{unit};
@@ -169,7 +174,7 @@
                 --pages-offset: {(width * scale) - (depth * scale / 2) - scale}{unit};
                 --initial-rotation: {initialRotation}deg;
                 --transition: {transition ? 'transform 0.5s ease' : 'none'};
-               width: {width * scale}{unit};
+               width: {containerWidth * scale}{unit};
                height: {height * scale}{unit};"
 >
     <div class="book">
