@@ -1,226 +1,214 @@
 <script lang="ts">
     import {onMount} from 'svelte';
-    import {scale} from 'svelte/transition';
     import Book from '../Book.svelte';
 
-    interface Book {
+    interface BookData {
         title: string;
         author?: string;
-        cover?: string;
+        coverImage?: string;
+        spineImage?: string;
+        backCoverImage?: string;
         priceHardcover?: string;
         priceSoftcover?: string;
         amazonUrl?: string;
         email?: string;
     }
 
-    export let book: Book = {
+    export let book: BookData = {
         title: 'Beispielbuch',
         author: 'Max Mustermann',
-        cover: '', // optional: Pfad zur Cover‑Bilddatei
-        priceHardcover: '€24.99',
-        priceSoftcover: '€14.99',
-        amazonUrl: 'https://www.amazon.de/',
-        email: 'sales@example.com'
+        coverImage: '', // optional: Pfad zur Cover‑Bilddatei
+        spineImage: '', // optional: Pfad zur Buchrücken‑Bilddatei
+        backCoverImage: '', // optional: Pfad zur Rückseiten‑Bilddatei
+        priceHardcover: '__,__ €',
+        priceSoftcover: '__,__ €',
     };
 
-    let placed = true;
+    let bookRef: Book;
+
+    onMount(() => {
+        const purchaseSection = document.querySelector<HTMLElement>('.purchase-section');
+        const bookEl = purchaseSection?.querySelector<HTMLElement>('.book');
+        if (!purchaseSection || !bookEl) return;
+
+        function clamp(num: number, min: number, max: number): number {
+            return Math.min(Math.max(num, min), max);
+        }
+
+        let front = true;
+        window.addEventListener('pointermove', (event: PointerEvent) => {
+            if (!bookRef) return;
+
+            const rect = purchaseSection.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const deltaX = event.clientX - centerX;
+            const deltaY = event.clientY - centerY;
+
+            const rotateY = clamp((deltaX / (rect.width / 2)) * 30, -40, 40); // Max +-40 degrees
+            const rotateX = clamp((-deltaY / (rect.height / 2)) * 10, -15, 15); // Max +-15 degrees
+
+            requestAnimationFrame(() => {
+                bookRef.setRotation(rotateY + (front ? 0 : 180), rotateX);
+            });
+        });
+
+        bookEl.addEventListener('click', () => {
+            if (!bookRef) return;
+            front = !front;
+            requestAnimationFrame(() => {
+                bookRef.setRotation(front ? 0 : 180, 0);
+            })
+        });
+    });
 </script>
 
-<div class="shelf">
+<section class="purchase-section" aria-label="Buch kaufen">
     <Book
-            spineImageAlt=""
-            initialRotation={90}
-            shadow={false}
-            hover={false}
-            containerWidth={43}
-            scale={1.55}
-            coverColor="teal"
+            bind:this={bookRef}
+            coverImage="{book.coverImage}"
+            coverImageAlt="Cover: {book.title}"
+            backCoverImage="{book.backCoverImage}"
+            backCoverImageAlt="Back Cover: {book.title}"
+            spineImage="{book.spineImage}"
+            depth={20}
+            transition={false}
     ></Book>
-    <Book
-            spineImageAlt=""
-            initialRotation={90}
-            shadow={false}
-            hover={false}
-            containerWidth={43}
-            scale={1.5}
-            coverColor="navy"
-    ></Book>
-    <Book
-            spineImageAlt=""
-            initialRotation={90}
-            shadow={false}
-            hover={false}
-            containerWidth={40}
-            scale={1.2}
-    ></Book>
-    <Book
-            spineImageAlt=""
-            initialRotation={90}
-            shadow={false}
-            hover={false}
-            containerWidth={40}
-            scale={1.3}
-            coverColor="green"
-    ></Book>
-    <Book
-            spineImageAlt=""
-            initialRotation={90}
-            shadow={false}
-            hover={false}
-            containerWidth={40}
-            scale={1.1}
-            coverColor="blue"
-    ></Book>
-    <div class="shelf-board"></div>
-</div>
 
-<aside class="info">
-    <h3 class="book-title">{book.title}</h3>
-    {#if book.author}
-        <div class="book-author">von {book.author}</div>
-    {/if}
-
-    <div class="prices">
-        <div class="price">
-            <div class="label">Hardcover (Farbe)</div>
-            <div class="amount">{book.priceHardcover}</div>
-        </div>
-        <div class="price">
-            <div class="label">Taschenbuch (Schwarz/Weiß)</div>
-            <div class="amount">{book.priceSoftcover}</div>
-        </div>
-    </div>
-
-    <div class="actions">
-        {#if book.amazonUrl}
-            <a class="btn amazon" href="{book.amazonUrl}" target="_blank" rel="noopener noreferrer"
-               aria-label="Auf Amazon kaufen">
-                Auf Amazon kaufen
-            </a>
+    <aside class="info">
+        <h3 class="book-title">{book.title}</h3>
+        {#if book.author}
+            <div class="book-author">von {book.author}</div>
         {/if}
 
-        {#if book.email}
-            <a class="btn mail" href="mailto:{book.email}?subject=Interesse an {encodeURIComponent(book.title)}"
-               aria-label="Per E‑Mail Bestellen">
-                Per E‑Mail bestellen
-            </a>
-        {/if}
-    </div>
-</aside>
+        <div class="prices">
+            <div class="price">
+                <div class="label">Hardcover (Farbe)</div>
+                <div class="amount">{book.priceHardcover}</div>
+            </div>
+            <div class="price">
+                <div class="label">Taschenbuch (Schwarz/Weiß)</div>
+                <div class="amount">{book.priceSoftcover}</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            {#if book.amazonUrl}
+                <a class="btn" href="{book.amazonUrl}" target="_blank" rel="noopener noreferrer"
+                   aria-label="Auf Amazon kaufen">
+                    📦 Auf Amazon kaufen
+                </a>
+            {/if}
+
+            {#if book.email}
+                <a class="btn" href="mailto:{book.email}?subject=Interesse an {encodeURIComponent(book.title)}"
+                   aria-label="Per E‑Mail Bestellen">
+                    📬 Per E‑Mail bestellen
+                </a>
+            {/if}
+        </div>
+    </aside>
+</section>
 
 <style>
-    .shelf {
-        position: absolute;
-        bottom: 13%;
-        width: 50%;
-        left: 50%;
-        transform: translateX(-56%);
-        height: 260px;
+    .purchase-section {
+        touch-action: none;
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
         display: flex;
-        align-items: flex-end;
-        justify-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: visible;
+
+        @media screen and (max-width: 720px) {
+            flex-direction: column;
+            gap: 5rem;
+
+            /*:global(.book) {*/
+            /*    transition: transform 0.5s ease;*/
+            /*}*/
+        }
 
         :global(.book) {
-            bottom: 16.6%;
-        }
-
-        .shelf-board {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background-image: url("$lib/assets/wood-pattern.png");
-            background-color: #7d3a00;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-            border-top: 2px solid rgba(255, 255, 255, 0.06);
-        }
-    }
-
-    .info {
-        position: absolute;
-        top: 50%;
-        left: 60%;
-        transform: translate(0, -50%);
-        min-width: 240px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .book-title {
-        margin: 0;
-        font-size: 1.25rem;
-    }
-
-    .book-author {
-        color: #666;
-        font-size: 0.95rem;
-    }
-
-    .prices {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .price {
-        background: #f7f7f7;
-        border-radius: 8px;
-        padding: 0.6rem 0.9rem;
-        min-width: 110px;
-        text-align: left;
-        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-    }
-
-    .price .label {
-        font-size: 0.8rem;
-        color: #777;
-    }
-
-    .price .amount {
-        font-weight: 700;
-        margin-top: 0.25rem;
-        font-size: 1.05rem;
-    }
-
-    .actions {
-        display: flex;
-        gap: 0.75rem;
-        margin-top: 0.5rem;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 0.6rem 0.9rem;
-        border-radius: 6px;
-        text-decoration: none;
-        color: white;
-        font-weight: 600;
-        font-size: 0.95rem;
-    }
-
-    .btn.amazon {
-        background: linear-gradient(180deg, #ff8c00, #c85e00);
-    }
-
-    .btn.mail {
-        background: linear-gradient(180deg, #4a90e2, #2f6fb2);
-    }
-
-    @media (max-width: 720px) {
-        .shelf-wrapper {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .shelf {
-            width: 280px;
-            height: 220px;
+            cursor: pointer;
         }
 
         .info {
-            width: 100%;
-            padding: 0 1rem;
+            min-width: 240px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .book-title {
+                margin: 0;
+                font-size: 1.25rem;
+            }
+
+            .book-author {
+                color: #666;
+                font-size: 0.95rem;
+            }
+
+            .prices {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .price {
+                background: transparent;
+                border-radius: 8px;
+                padding: 0.6rem 0.9rem;
+                min-width: 110px;
+                text-align: left;
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+                .label {
+                    font-size: 0.8rem;
+                    color: #777;
+                }
+
+                .amount {
+                    font-weight: 700;
+                    margin-top: 0.25rem;
+                    font-size: 1.05rem;
+                }
+            }
+
+            .actions {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                /*gap: 12px;*/
+                width: 100%;
+                margin-top: 0.5rem;
+                align-items: center;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 0.6rem 0.9rem;
+                border-radius: 28px; /* 6px */
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.95rem;
+
+
+                width: 100%;
+                max-width: 440px;
+
+                color: white;
+                background: rgba(255, 255, 255, 0.09);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+
+                transition: transform .26s ease, background .2s ease;
+
+                &:hover {
+                    transform: translateY(-4px);
+                    background: rgba(255, 255, 255, 0.18);
+                }
+            }
         }
     }
 </style>

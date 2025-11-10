@@ -15,7 +15,7 @@
     export let unit: string = 'px';
     export let scale: number = 1;
 
-    export let shadow: boolean = true;
+    export let shadow: 0 | 1 | 2 = 0; // 0 = none, 1 = small, 2 = large
     export let coverColor: string = '#4f46e5';
     export let pageColor: string = '#f8f7f3';
 
@@ -25,10 +25,10 @@
 
     export let containerWidth: number = width;
 
-    export function setRotation(deg: number) {
+    export function setRotation(degY: number, degX: number = 0, degZ: number = 0) {
         const book = document.querySelector<HTMLElement>('.book');
         if (book) {
-            book.style.transform = `rotateY(${deg}deg)`;
+            book.style.transform = `rotateY(${degY}deg) rotateX(${degX}deg) rotateZ(${degZ}deg)`;
         }
     }
 </script>
@@ -59,7 +59,7 @@
         transform-style: preserve-3d;
         transform: rotateY(var(--initial-rotation, -30deg));
         transition: var(--transition);
-        /*animation: 1s ease 0s 1 initAnimation;*/
+        animation: 1s ease 0s 1 initAnimation;
 
         .book-container.hover:hover &,
         .book-container.hover:focus & {
@@ -75,7 +75,7 @@
             height: 100%;
             background-color: var(--cover-color);
             border-radius: 0 2px 2px 0;
-            box-shadow: 5px 5px 20px #666;
+            box-shadow: var(--book-shadow, none);
 
             &.front {
                 transform: translateZ(var(--cover-offset));
@@ -155,13 +155,10 @@
     }
 </style>
 
-<a
+<div
         class="book-container {hover ? 'hover' : ''}"
-        href="#buy"
-        target="_blank"
-        rel="noreferrer noopener"
         style="--cover-color: {coverColor};
-                --book-shadow: {shadow ? '-10px 0 50px 10px #666' : 'none'};
+                --book-shadow: {shadow === 2 ? '-10px 0 50px 10px #666' : (shadow === 1 ? '5px 5px 20px #666' : 'none')};
                 --spine-writing-mode: {spineDir ? 'sideways-rl' : 'sideways-lr'};
                 --width: {width * scale}{unit};
                 --height: {height * scale}{unit};
@@ -209,4 +206,4 @@
             </div>
         {/if}
     </div>
-</a>
+</div>
