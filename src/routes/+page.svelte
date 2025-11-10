@@ -98,9 +98,7 @@
                 type: "wheel,touch,pointer",
                 onUp: () => {
                     if (animating) return;
-
                     gotoSection(currentIndex - 1);
-
                 },
                 onDown: () => {
                     if (animating) return;
@@ -132,9 +130,6 @@
             } else {
                 isMobile = true;
             }
-            console.log(`wasMobile`, wasMobile);
-            console.log(`isMobile`, isMobile);
-            console.log(`wasMobile !== isMobile`, wasMobile !== isMobile);
             gotoSection(currentIndex, isMobile, wasMobile !== isMobile);
         }
 
