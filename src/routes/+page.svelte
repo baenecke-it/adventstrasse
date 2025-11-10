@@ -89,9 +89,8 @@
         let mm = gsap.matchMedia();
 
         // add a media query. When it matches, the associated function will run
-        mm.add("(min-width: 769px)", () => {
+        mm.add("(max-width: 768px)", () => {
             gsap.set(bookContainer, {left: '50%'});
-            return gotoSection(0);
         });
 
         mm.add("(min-width: 769px)", () => {
