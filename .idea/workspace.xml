@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4848f3cb-e121-4194-b958-a55d3082aa1d" name="Changes" comment="chore: initialize project with SvelteKit setup &#10;&#10;(incl. prettier, eslint, cloudflare-adapter, devtools-json)">
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/Cover_Die Adventstraße_Dorothea Schaller.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/Die Adventstraße-Titel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/Die Adventstraße-Umschlag.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/author_dorothea_schaller.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/backcover_adventstrasse.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/cover_adventstrasse.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/assets/spine_adventstrasse.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/components/Book.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/components/sections/AuthorSection.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/components/sections/ContentSection.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/components/sections/Section.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/css/global.scss" afterDir="false" />
+    <list default="true" id="4848f3cb-e121-4194-b958-a55d3082aa1d" name="Changes" comment="chore: update workspace configuration and add auto-import settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762688252868</updated>
-      <workItem from="1762688254053" duration="34806000" />
+      <workItem from="1762688254053" duration="35994000" />
     </task>
     <task id="LOCAL-00001" summary="chore: initialize project with SvelteKit setup &#10;&#10;(incl. prettier, eslint, cloudflare-adapter, devtools-json)">
       <option name="closed" value="true" />
@@ -145,7 +130,39 @@
       <option name="project" value="LOCAL" />
       <updated>1762688663643</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: add `Book`-component providing 3D-model of a rotatable book with customizable cover and spine images">
+      <option name="closed" value="true" />
+      <created>1762732992500</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762732992500</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add global styles for smooth scrolling and box-sizing">
+      <option name="closed" value="true" />
+      <created>1762733034125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762733034125</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: add Author and Content sections with GSAP transition animations using the 3D-book-model&#10;&#10;Refs: 003bd19ad146a008135d9c7917fd7f1ee151b589">
+      <option name="closed" value="true" />
+      <created>1762733121954</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762733121954</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: update workspace configuration and add auto-import settings">
+      <option name="closed" value="true" />
+      <created>1762733132691</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762733132691</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +184,10 @@
     <MESSAGE value="chore: add initial project files and configuration for SvelteKit" />
     <MESSAGE value="chore: initialize project with SvelteKit setup&#10;&#10;(incl. prettier, vitest, playwright, storybook, ...)" />
     <MESSAGE value="chore: initialize project with SvelteKit setup &#10;&#10;(incl. prettier, eslint, cloudflare-adapter, devtools-json)" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: initialize project with SvelteKit setup &#10;&#10;(incl. prettier, eslint, cloudflare-adapter, devtools-json)" />
+    <MESSAGE value="feat: add `Book`-component providing 3D-model of a rotatable book with customizable cover and spine images" />
+    <MESSAGE value="feat: add global styles for smooth scrolling and box-sizing" />
+    <MESSAGE value="feat: add Author and Content sections with GSAP transition animations using the 3D-book-model&#10;&#10;Refs: 003bd19ad146a008135d9c7917fd7f1ee151b589" />
+    <MESSAGE value="chore: update workspace configuration and add auto-import settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update workspace configuration and add auto-import settings" />
   </component>
 </project>
