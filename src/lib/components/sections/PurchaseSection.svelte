@@ -35,16 +35,27 @@
             return Math.min(Math.max(num, min), max);
         }
 
-        let front = true;
-        window.addEventListener('pointermove', (event: PointerEvent) => {
+        const onPointerMove = (event: MouseEvent | TouchEvent) => {
             if (!bookRef) return;
+
+            let pointerData: MouseEvent | Touch;
+
+            if (event instanceof TouchEvent) {
+                if (event.touches.length > 0) {
+                    pointerData = event.touches[0];
+                } else {
+                    return;
+                }
+            } else {
+                pointerData = event;
+            }
 
             const rect = purchaseSection.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
 
-            const deltaX = event.clientX - centerX;
-            const deltaY = event.clientY - centerY;
+            const deltaX = pointerData.clientX - centerX;
+            const deltaY = pointerData.clientY - centerY;
 
             const rotateY = clamp((deltaX / (rect.width / 2)) * 30, -40, 40); // Max +-40 degrees
             const rotateX = clamp((-deltaY / (rect.height / 2)) * 10, -15, 15); // Max +-15 degrees
@@ -52,7 +63,11 @@
             requestAnimationFrame(() => {
                 bookRef.setRotation(rotateY + (front ? 0 : 180), rotateX * (front ? 1 : -1));
             });
-        });
+        }
+
+        let front = true;
+        window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('touchmove', onPointerMove);
 
         bookEl.addEventListener('click', () => {
             if (!bookRef) return;
@@ -113,7 +128,6 @@
 
 <style>
     .purchase-section {
-        touch-action: pan-y;
         position: relative;
         width: 100%;
         min-height: calc(100dvh - var(--footer-height));
