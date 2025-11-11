@@ -50,7 +50,7 @@
             const rotateX = clamp((-deltaY / (rect.height / 2)) * 10, -15, 15); // Max +-15 degrees
 
             requestAnimationFrame(() => {
-                bookRef.setRotation(rotateY + (front ? 0 : 180), rotateX);
+                bookRef.setRotation(rotateY + (front ? 0 : 180), rotateX * (front ? 1 : -1));
             });
         });
 
