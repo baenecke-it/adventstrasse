@@ -38,7 +38,7 @@
 		--card-bg: rgba(0, 0, 0, 0.45);
 		--accent: rgba(255, 225, 140, 0.95);
 		--footer-height: 60px;
-		--footer-height-mobile: 80px;
+		--footer-height-mobile: 70px;
 	}
 
 	:global(html),

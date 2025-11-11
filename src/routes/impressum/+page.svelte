@@ -73,7 +73,7 @@
 		--card-bg: rgba(0, 0, 0, 0.45);
 		--accent: rgba(255, 225, 140, 0.95);
 		--footer-height: 60px;
-		--footer-height-mobile: 80px;
+		--footer-height-mobile: 70px;
 	}
 
 	:global(html) {
@@ -106,7 +106,6 @@
 
 	.content-card {
 		background: var(--card-bg);
-		backdrop-filter: blur(10px);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 12px;
 		padding: 3rem;

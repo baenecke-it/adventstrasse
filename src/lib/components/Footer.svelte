@@ -50,9 +50,9 @@
 	@media screen and (max-width: 720px) {
 		.footer {
 			flex-direction: column;
-			padding: 0.75rem 1rem;
-			gap: 0.5rem;
-			height: var(--footer-height-mobile, 80px);
+			padding: 0.5rem 1rem;
+			gap: 0.25rem;
+			height: var(--footer-height-mobile, 70px);
 		}
 
 		.copyright,
