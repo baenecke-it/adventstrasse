@@ -1,18 +1,8 @@
-<script lang="ts">
-    import Stars from '$lib/components/Stars.svelte';
-    import Snow from '$lib/components/Snow.svelte';
-    import Roofs from '$lib/components/Roofs.svelte';
-</script>
-
 <svelte:head>
     <title>Impressum – Adventstraße</title>
 </svelte:head>
 
-<Stars />
-<Snow />
-<Roofs />
-
-<main class="impressum-page">
+<div class="impressum-page">
     <div class="content-card">
     	<h1>Impressum</h1>
 
@@ -62,37 +52,9 @@
 
     	<a href="/" class="back-link">← Zurück zur Startseite</a>
     </div>
-</main>
+</div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700&display=swap');
-
-    :root {
-    	--bg-top: #182033;
-    	--bg-bottom: #05060a;
-    	--card-bg: rgba(0, 0, 0, 0.45);
-    	--accent: rgba(255, 225, 140, 0.95);
-    	--footer-height: 60px;
-    	--footer-height-mobile: 70px;
-    }
-
-    :global(html) {
-    	height: 100%;
-    }
-
-    :global(body) {
-    	font-family: 'Lato', sans-serif;
-    	color: #fff;
-    	min-height: 100vh;
-    	background: radial-gradient(ellipse at bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
-    	background-attachment: fixed;
-    	position: relative;
-    	margin: 0;
-    	padding: 0;
-    	overflow-x: hidden;
-    	overflow-y: auto;
-    }
-
     .impressum-page {
     	min-height: calc(100vh - var(--footer-height));
     	display: flex;
