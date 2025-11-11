@@ -35,6 +35,7 @@
         height: 100%;
         pointer-events: none;
         z-index: 0;
+        overflow: hidden;
 
         :global(.flake) {
             position: absolute;
