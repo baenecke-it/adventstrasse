@@ -1,6 +1,6 @@
 <footer class="footer">
     <p class="copyright">
-        © {new Date().getFullYear()} Dorothea Schaller. Alle Rechte vorbehalten.
+        © {new Date().getFullYear()}
     </p>
     <nav class="footer-nav">
         <a href="/impressum">Impressum</a>
@@ -13,17 +13,16 @@
         bottom: 0;
         left: 0;
         right: 0;
-        padding: 1rem 2rem;
+        padding: 0.5rem 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.25rem;
         background: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(10px);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 0.875rem;
         z-index: 101;
-        height: var(--footer-height, 60px);
         box-sizing: border-box;
     }
 
@@ -45,19 +44,5 @@
 
     .footer-nav a:hover {
         color: var(--accent, rgba(255, 225, 140, 0.95));
-    }
-
-    @media screen and (max-width: 720px) {
-        .footer {
-            flex-direction: column;
-            padding: 0.5rem 1rem;
-            gap: 0.25rem;
-            height: var(--footer-height-mobile, 70px);
-        }
-
-        .copyright,
-        .footer-nav {
-            font-size: 0.75rem;
-        }
     }
 </style>
