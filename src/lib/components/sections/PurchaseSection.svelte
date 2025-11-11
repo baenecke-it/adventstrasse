@@ -113,7 +113,7 @@
 
 <style>
     .purchase-section {
-        touch-action: none;
+        touch-action: pan-y;
         position: relative;
         width: 100%;
         min-height: calc(100dvh - var(--footer-height));

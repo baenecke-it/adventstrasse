@@ -3,6 +3,7 @@
     import backCoverImage from "$lib/assets/backcover_adventstrasse.jpg";
     import spineImage from "$lib/assets/spine_adventstrasse.jpg";
     import PurchaseSection from "$lib/components/sections/PurchaseSection.svelte";
+    import ContentSection from "$lib/components/sections/ContentSection.svelte";
 </script>
 
 <svelte:head>
@@ -23,4 +24,5 @@
                 email: 'adventstrasse@mail.de'
             }}
 ></PurchaseSection>
+<ContentSection></ContentSection>
 
