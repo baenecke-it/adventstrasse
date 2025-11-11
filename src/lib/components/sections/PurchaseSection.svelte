@@ -1,6 +1,8 @@
 <script lang="ts">
     import {onMount} from 'svelte';
     import Book from '../Book.svelte';
+    import AmazonLogo from '$lib/assets/icons/amazon.svelte';
+    import MailIcon from '$lib/assets/icons/at-sign.svelte';
 
     interface BookData {
         title: string;
@@ -112,14 +114,14 @@
             {#if book.amazonUrl}
                 <a class="btn" href="{book.amazonUrl}" target="_blank" rel="noopener noreferrer"
                    aria-label="Auf Amazon kaufen">
-                    📦 Auf Amazon kaufen
+                    <AmazonLogo/> Auf Amazon kaufen
                 </a>
             {/if}
 
             {#if book.email}
                 <a class="btn" href="mailto:{book.email}?subject=Interesse an {encodeURIComponent(book.title)}"
                    aria-label="Per E‑Mail Bestellen">
-                    📬 Per E‑Mail bestellen
+                    <MailIcon/> Per E‑Mail bestellen
                 </a>
             {/if}
         </div>
@@ -200,29 +202,41 @@
                 width: 100%;
                 margin-top: 0.5rem;
                 align-items: center;
-            }
 
-            .btn {
-                display: inline-block;
-                padding: 0.6rem 0.9rem;
-                border-radius: 28px; /* 6px */
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 0.95rem;
+                .btn {
+                    display: inline-block;
+                    padding: 0.6rem 0.9rem;
+                    border-radius: 28px; /* 6px */
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 0.95rem;
 
 
-                width: 100%;
-                max-width: 440px;
+                    width: 100%;
+                    max-width: 440px;
 
-                color: white;
-                background: rgba(255, 255, 255, 0.09);
-                border: 1px solid rgba(255, 255, 255, 0.18);
+                    color: white;
+                    background: rgba(255, 255, 255, 0.09);
+                    border: 1px solid rgba(255, 255, 255, 0.18);
 
-                transition: transform .26s ease, background .2s ease;
+                    transition: transform .26s ease, background .2s ease;
 
-                &:hover {
-                    transform: translateY(-4px);
-                    background: rgba(255, 255, 255, 0.18);
+                    &:hover {
+                        transform: translateY(-4px);
+                        background: rgba(255, 255, 255, 0.18);
+                    }
+
+                    :global(svg) {
+                        width: 1.3em;
+                        height: auto;
+                        vertical-align: sub;
+                        margin-right: 0.2rem;
+
+                        &.feather-at-sign,
+                        &.feather-mail {
+                            width: 1.1em;
+                        }
+                    }
                 }
             }
         }
