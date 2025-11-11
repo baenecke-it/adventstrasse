@@ -1,6 +1,6 @@
 <footer class="footer">
     <p class="copyright">
-        © {new Date().getFullYear()}
+        © {new Date().getFullYear()} Dorothea Schaller
     </p>
     <nav class="footer-nav">
         <a href="/impressum">Impressum</a>
@@ -9,7 +9,7 @@
 
 <style>
     .footer {
-        position: fixed;
+        position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
