@@ -116,6 +116,7 @@
         touch-action: none;
         position: relative;
         width: 100%;
+        min-height: calc(100dvh - var(--footer-height));
         max-width: 1200px;
         display: flex;
         justify-content: space-evenly;

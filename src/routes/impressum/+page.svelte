@@ -2,7 +2,7 @@
     <title>Impressum – Adventstraße</title>
 </svelte:head>
 
-<div class="impressum-page">
+<section class="impressum-page">
     <div class="content-card">
     	<h1>Impressum</h1>
 
@@ -52,7 +52,7 @@
 
     	<a href="/" class="back-link">← Zurück zur Startseite</a>
     </div>
-</div>
+</section>
 
 <style>
     .impressum-page {
@@ -61,7 +61,6 @@
     	align-items: center;
     	justify-content: center;
     	padding: 4rem 2rem;
-    	padding-bottom: calc(4rem + var(--footer-height));
     	position: relative;
     	z-index: 10;
     }
@@ -98,10 +97,6 @@
     	font-weight: 600;
     	margin: 1.5rem 0 0.5rem 0;
     	color: rgba(255, 255, 255, 0.9);
-    }
-
-    section {
-    	margin-bottom: 2rem;
     }
 
     p {
@@ -142,9 +137,7 @@
 
     @media screen and (max-width: 720px) {
     	.impressum-page {
-    		min-height: calc(100vh - var(--footer-height-mobile));
     		padding: 2rem 1rem;
-    		padding-bottom: calc(2rem + var(--footer-height-mobile));
     	}
 
     	.content-card {

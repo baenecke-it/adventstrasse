@@ -14,6 +14,7 @@
         left: 0;
         right: 0;
         padding: 0.5rem 1rem;
+        height: var(--footer-height, 40px);
         display: flex;
         justify-content: space-between;
         align-items: center;
