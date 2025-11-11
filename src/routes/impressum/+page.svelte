@@ -72,29 +72,34 @@
 		--bg-bottom: #05060a;
 		--card-bg: rgba(0, 0, 0, 0.45);
 		--accent: rgba(255, 225, 140, 0.95);
+		--footer-height: 60px;
+		--footer-height-mobile: 80px;
 	}
 
-	:global(html),
-	:global(body) {
-		height: 100vh;
-		overflow-y: auto;
+	:global(html) {
+		height: 100%;
 	}
 
 	:global(body) {
 		font-family: 'Lato', sans-serif;
 		color: #fff;
-		min-height: 100dvh;
+		min-height: 100vh;
 		background: radial-gradient(ellipse at bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
+		background-attachment: fixed;
 		position: relative;
-		padding-bottom: 100px;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 
 	.impressum-page {
-		min-height: 100vh;
+		min-height: calc(100vh - var(--footer-height));
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 4rem 2rem;
+		padding-bottom: calc(4rem + var(--footer-height));
 		position: relative;
 		z-index: 10;
 	}
@@ -108,6 +113,7 @@
 		max-width: 800px;
 		width: 100%;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+		margin: auto;
 	}
 
 	h1 {
@@ -174,6 +180,12 @@
 	}
 
 	@media screen and (max-width: 720px) {
+		.impressum-page {
+			min-height: calc(100vh - var(--footer-height-mobile));
+			padding: 2rem 1rem;
+			padding-bottom: calc(2rem + var(--footer-height-mobile));
+		}
+
 		.content-card {
 			padding: 2rem 1.5rem;
 		}
@@ -184,10 +196,6 @@
 
 		h2 {
 			font-size: 1.3rem;
-		}
-
-		.impressum-page {
-			padding: 2rem 1rem;
 		}
 	}
 </style>

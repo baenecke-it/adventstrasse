@@ -37,6 +37,8 @@
 		--bg-bottom: #05060a;
 		--card-bg: rgba(0, 0, 0, 0.45);
 		--accent: rgba(255, 225, 140, 0.95);
+		--footer-height: 60px;
+		--footer-height-mobile: 80px;
 	}
 
 	:global(html),
@@ -57,5 +59,12 @@
 		align-items: center;
 		justify-content: center;
 		padding: 2rem;
+		padding-bottom: calc(2rem + var(--footer-height));
+	}
+
+	@media screen and (max-width: 720px) {
+		:global(body) {
+			padding-bottom: calc(2rem + var(--footer-height-mobile));
+		}
 	}
 </style>

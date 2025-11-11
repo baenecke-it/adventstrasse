@@ -18,11 +18,13 @@
 		justify-content: space-between;
 		align-items: center;
 		gap: 1rem;
-		background: rgba(0, 0, 0, 0.2);
+		background: rgba(0, 0, 0, 0.3);
 		backdrop-filter: blur(10px);
 		border-top: 1px solid rgba(255, 255, 255, 0.1);
 		font-size: 0.875rem;
-		z-index: 100;
+		z-index: 101;
+		height: var(--footer-height, 60px);
+		box-sizing: border-box;
 	}
 
 	.copyright {
@@ -50,6 +52,7 @@
 			flex-direction: column;
 			padding: 0.75rem 1rem;
 			gap: 0.5rem;
+			height: var(--footer-height-mobile, 80px);
 		}
 
 		.copyright,
