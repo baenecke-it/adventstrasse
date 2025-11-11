@@ -113,9 +113,10 @@
 
 <style>
     .purchase-section {
-        touch-action: none;
+        touch-action: pan-y;
         position: relative;
         width: 100%;
+        min-height: calc(100dvh - var(--footer-height));
         max-width: 1200px;
         display: flex;
         justify-content: space-evenly;
@@ -140,6 +141,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            text-align: center;
 
             .book-title {
                 margin: 0;

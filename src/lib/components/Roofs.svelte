@@ -11,7 +11,7 @@
 
 <style>
     .roofs {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         width: 100%;
         height: 42vh;
@@ -19,6 +19,7 @@
         clip-path: polygon(0% 100%, 5% 85%, 15% 95%, 25% 80%, 40% 100%, 55% 85%, 65% 95%, 80% 70%, 100% 100%);
         z-index: 2;
         filter: drop-shadow(0 -8px 18px rgba(0, 0, 0, 0.6));
+        pointer-events: none;
     }
 
     .roofs::before {
@@ -31,7 +32,7 @@
     }
 
     .window {
-        position: absolute;
+        position: fixed;
         z-index: 3;
         width: 56px;
         height: 56px;
@@ -46,6 +47,7 @@
         transform: rotate(-6deg);
         animation: flicker 3s infinite;
         border: 1px solid rgba(0, 0, 0, 0.12);
+        pointer-events: none;
     }
 
     .window::before {

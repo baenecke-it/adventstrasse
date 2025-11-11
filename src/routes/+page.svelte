@@ -3,18 +3,15 @@
     import backCoverImage from "$lib/assets/backcover_adventstrasse.jpg";
     import spineImage from "$lib/assets/spine_adventstrasse.jpg";
     import PurchaseSection from "$lib/components/sections/PurchaseSection.svelte";
-    import Stars from "$lib/components/Stars.svelte";
-    import Snow from "$lib/components/Snow.svelte";
-    import Roofs from "$lib/components/Roofs.svelte";
+    import ContentSection from "$lib/components/sections/ContentSection.svelte";
+    import AuthorSection from "$lib/components/sections/AuthorSection.svelte";
 </script>
 
 <svelte:head>
     <title>Adventstraße – Der Düsterweg erwacht</title>
 </svelte:head>
 
-<Stars></Stars>
-<Snow></Snow>
-<Roofs></Roofs>
+
 <PurchaseSection
         book={{
                 title: 'Die Adventstraße',
@@ -28,33 +25,6 @@
                 email: 'adventstrasse@mail.de'
             }}
 ></PurchaseSection>
+<ContentSection></ContentSection>
+<AuthorSection></AuthorSection>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700&display=swap');
-
-    :root {
-        --bg-top: #182033;
-        --bg-bottom: #05060a;
-        --card-bg: rgba(0, 0, 0, 0.45);
-        --accent: rgba(255, 225, 140, 0.95);
-    }
-
-    :global(html), :global(body) {
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    :global(body) {
-        font-family: 'Lato', sans-serif;
-        color: #fff;
-        height: 100dvh;
-        background: radial-gradient(ellipse at bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
-        position: relative;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    }
-</style>

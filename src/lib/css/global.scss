@@ -4,6 +4,11 @@
 
 html,
 body {
+  position: relative;
   scroll-behavior: smooth;
   margin: 0;
+  overflow-x: hidden;
+  min-height: 100dvh;
+
+  font-family: 'Lato', sans-serif;
 }

@@ -8,6 +8,12 @@
         const snowContainer = document.querySelector('.snow') as HTMLElement | null;
         if (!snowContainer) return;
 
+        const pageHeight = Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight,
+            window.innerHeight
+        );
+
         const numFlakes = 60; // Number of snowflakes to create
         for (let i = 0; i < numFlakes; i++) {
             const flake = document.createElement('div');
@@ -19,6 +25,8 @@
             flake.style.animationDuration = `${3 + Math.random() * 5}s`;
             // flake.style.animationDuration = (10 + Math.random()*10) + 's';
             flake.style.animationDelay = `${Math.random() * 10}s`;
+            // setze die Zielhöhe in Pixeln (Dokumenthöhe + etwas Puffer)
+            flake.style.setProperty('--endY', `${pageHeight + 50}px`);
             snowContainer.appendChild(flake);
         }
     });
@@ -35,6 +43,7 @@
         height: 100%;
         pointer-events: none;
         z-index: 0;
+        overflow: hidden;
 
         :global(.flake) {
             position: absolute;
@@ -56,7 +65,7 @@
             opacity: 0.8;
         }
         100% {
-            transform: translateY(110vh) translateX(20px); /* 30px */
+            transform: translateY(var(--endY)) translateX(20px); /* 30px */
             opacity: 0.2;
         }
     }
