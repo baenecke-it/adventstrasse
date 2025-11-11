@@ -35,7 +35,6 @@
             position: relative;
             z-index: 4;
             width: min(820px, 92%);
-            padding: 1.25rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;

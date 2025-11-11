@@ -29,6 +29,8 @@
         --bg-bottom: #05060a;
         --card-bg: rgba(0, 0, 0, 0.45);
         --accent: rgba(255, 225, 140, 0.95);
+        --color: #ffffff; /* TODO: use for text-color */
+        --muted: #6b7280; /* TODO: use for all muted text */
         --footer-height: 40px;
     }
 

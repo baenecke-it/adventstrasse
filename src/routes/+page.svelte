@@ -4,6 +4,7 @@
     import spineImage from "$lib/assets/spine_adventstrasse.jpg";
     import PurchaseSection from "$lib/components/sections/PurchaseSection.svelte";
     import ContentSection from "$lib/components/sections/ContentSection.svelte";
+    import AuthorSection from "$lib/components/sections/AuthorSection.svelte";
 </script>
 
 <svelte:head>
@@ -25,4 +26,5 @@
             }}
 ></PurchaseSection>
 <ContentSection></ContentSection>
+<AuthorSection></AuthorSection>
 
