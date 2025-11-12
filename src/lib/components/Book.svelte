@@ -25,9 +25,14 @@
 
     export let containerWidth: number = width;
 
-    export function setRotation(degY: number, degX: number = 0, degZ: number = 0) {
+    export function setRotation(degY: number, degX: number = 0, degZ: number = 0, enableTransition: boolean = false) {
         const book = document.querySelector<HTMLElement>('.book');
         if (book) {
+            if (enableTransition) {
+                book.style.transition = 'transform 0.5s ease';
+            } else {
+                book.style.transition = 'none';
+            }
             book.style.transform = `rotateY(${degY}deg) rotateX(${degX}deg) rotateZ(${degZ}deg)`;
         }
     }

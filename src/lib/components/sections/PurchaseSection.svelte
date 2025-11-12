@@ -71,6 +71,15 @@
         window.addEventListener('mousemove', onPointerMove);
         window.addEventListener('touchmove', onPointerMove);
 
+        // Reset book rotation when touch ends (finger lifted)
+        const onTouchEnd = () => {
+            if (!bookRef) return;
+            requestAnimationFrame(() => {
+                bookRef.setRotation(front ? 0 : 180, 0, 0, true);
+            });
+        };
+        window.addEventListener('touchend', onTouchEnd);
+
         bookEl.addEventListener('click', () => {
             if (!bookRef) return;
             front = !front;
