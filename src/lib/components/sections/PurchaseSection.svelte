@@ -37,12 +37,17 @@
             return Math.min(Math.max(num, min), max);
         }
 
+        let front = true;
+        let isTouching = false;
+        const defaultRotation = -30; // Default slightly angled position
+
         const onPointerMove = (event: MouseEvent | TouchEvent) => {
             if (!bookRef) return;
 
             let pointerData: MouseEvent | Touch;
+            const isTouch = event instanceof TouchEvent;
 
-            if (event instanceof TouchEvent) {
+            if (isTouch) {
                 if (event.touches.length > 0) {
                     pointerData = event.touches[0];
                 } else {
@@ -63,19 +68,41 @@
             const rotateX = clamp((-deltaY / (rect.height / 2)) * 10, -15, 15); // Max +-15 degrees
 
             requestAnimationFrame(() => {
-                bookRef.setRotation(rotateY + (front ? 0 : 180), rotateX * (front ? 1 : -1));
+                // Enable transition for touch on mobile
+                bookRef.setRotation(rotateY + (front ? 0 : 180), rotateX * (front ? 1 : -1), 0, isTouch);
             });
         }
 
-        let front = true;
+        // Handle touchstart to rotate book to finger immediately
+        const onTouchStart = (event: TouchEvent) => {
+            if (!bookRef) return;
+            isTouching = true;
+            onPointerMove(event);
+        };
+
+        // Reset book rotation when touch ends (finger lifted)
+        const onTouchEnd = () => {
+            if (!bookRef) return;
+            isTouching = false;
+            requestAnimationFrame(() => {
+                bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
+            });
+        };
+
         window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('touchstart', onTouchStart);
         window.addEventListener('touchmove', onPointerMove);
+        window.addEventListener('touchend', onTouchEnd);
+        window.addEventListener('touchcancel', onTouchEnd);
 
         bookEl.addEventListener('click', () => {
             if (!bookRef) return;
+            // Ignore clicks that happen during touch (quick taps)
+            if (isTouching) return;
+            
             front = !front;
             requestAnimationFrame(() => {
-                bookRef.setRotation(front ? 0 : 180, 0);
+                bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
             })
         });
     });
