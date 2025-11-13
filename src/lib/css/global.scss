@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Balothine';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Balothine"),
+  url("/fonts/balothine-font/Balothine.otf") format("opentype"),
+  url("/fonts/balothine-font/Balothine.ttf") format("truetype");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,4 +22,25 @@ body {
   min-height: 100dvh;
 
   font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Balothine', serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+section {
+  z-index: 1;
 }

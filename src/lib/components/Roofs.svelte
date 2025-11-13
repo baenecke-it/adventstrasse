@@ -17,7 +17,6 @@
         height: 42vh;
         background: linear-gradient(to top, #232733 0%, #3c4150 40%, transparent 100%);
         clip-path: polygon(0% 100%, 5% 85%, 15% 95%, 25% 80%, 40% 100%, 55% 85%, 65% 95%, 80% 70%, 100% 100%);
-        z-index: 2;
         filter: drop-shadow(0 -8px 18px rgba(0, 0, 0, 0.6));
         pointer-events: none;
     }
@@ -33,7 +32,6 @@
 
     .window {
         position: fixed;
-        z-index: 3;
         width: 56px;
         height: 56px;
         bottom: 22vh;

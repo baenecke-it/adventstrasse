@@ -62,7 +62,6 @@
     	justify-content: center;
     	padding: 4rem 2rem;
     	position: relative;
-    	z-index: 10;
     }
 
     .content-card {
@@ -77,24 +76,16 @@
     }
 
     h1 {
-    	font-family: 'Cormorant Garamond', serif;
-    	font-size: 2.5rem;
-    	font-weight: 600;
     	margin: 0 0 2rem 0;
     	color: var(--accent);
     }
 
     h2 {
-    	font-family: 'Cormorant Garamond', serif;
-    	font-size: 1.5rem;
-    	font-weight: 600;
     	margin: 2rem 0 1rem 0;
     	color: rgba(255, 255, 255, 0.95);
     }
 
     h3 {
-    	font-size: 1.1rem;
-    	font-weight: 600;
     	margin: 1.5rem 0 0.5rem 0;
     	color: rgba(255, 255, 255, 0.9);
     }
@@ -142,14 +133,6 @@
 
     	.content-card {
     		padding: 2rem 1.5rem;
-    	}
-
-    	h1 {
-    		font-size: 2rem;
-    	}
-
-    	h2 {
-    		font-size: 1.3rem;
     	}
     }
 </style>

@@ -3,7 +3,7 @@
 
 <section class="content-section" aria-label="Buchbeschreibung">
     <div class="card">
-        <h1>Adventstraße – Der Düsterweg erwacht</h1>
+        <h2>Das Geheimnis der 24&nbsp;roten&nbsp;Briefe</h2>
 
         <div class="lead">
             <p>
@@ -33,7 +33,6 @@
 
         .card {
             position: relative;
-            z-index: 4;
             width: min(820px, 92%);
             display: flex;
             flex-direction: column;
@@ -41,30 +40,18 @@
             align-items: center;
         }
 
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
+        h2 {
             margin: 0;
-            letter-spacing: 0.8px;
             text-align: center;
         }
 
         div.lead {
             max-width: 760px;
             margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            line-height: 1.5;
             background: var(--card-bg);
             padding: 1rem 1.5rem;
             border-radius: 12px;
             text-align: center;
-        }
-
-        @media (max-width: 720px) {
-            h1 {
-                font-size: 1.8rem
-            }
         }
     }
 </style>

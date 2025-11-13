@@ -94,7 +94,7 @@
     ></Book>
 
     <aside class="info">
-        <h3 class="book-title">{book.title}</h3>
+        <h1 class="book-title">{book.title}</h1>
         {#if book.author}
             <div class="book-author">von {book.author}</div>
         {/if}
@@ -161,12 +161,11 @@
 
             .book-title {
                 margin: 0;
-                font-size: 1.25rem;
             }
 
             .book-author {
                 color: #666;
-                font-size: 0.95rem;
+                margin-top: -1rem;
             }
 
             .prices {

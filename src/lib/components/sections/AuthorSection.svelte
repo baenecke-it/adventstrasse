@@ -20,6 +20,7 @@
 </script>
 
 <section class="author-section" aria-label="Über die Autorin">
+    <h2 class="section-title">Über mich</h2>
     <article class="author-card" role="article">
         <figure class="author-figure">
             <img src={authorImage} alt={name} class="author-image"/>
@@ -30,7 +31,6 @@
         </figure>
 
         <div class="author-bio">
-            <h2 class="section-title">Über die Autorin</h2>
             <p class="description">{bio}</p>
         </div>
     </article>
@@ -79,8 +79,6 @@
 
                     .author-name {
                         margin: 0;
-                        font-size: 1rem;
-                        font-weight: 600;
                     }
 
                     .author-role {
@@ -94,15 +92,8 @@
             .author-bio {
                 padding: 0.25rem 0;
 
-                .section-title {
-                    margin: 0 0 0.5rem 0;
-                    font-size: 1.125rem;
-                    text-align: left;
-                }
-
                 .description {
                     margin: 0;
-                    color: var(--muted);
                     line-height: 1.5;
                     text-align: left;
                 }
@@ -118,7 +109,7 @@
                         padding-top: 0.5rem;
 
                         .description {
-                            text-align: justify;
+                            text-align: center;
                         }
                     }
                 }

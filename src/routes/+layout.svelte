@@ -22,8 +22,6 @@
 <Footer/>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700&display=swap');
-
     :root {
         --bg-top: #182033;
         --bg-bottom: #05060a;
