@@ -47,6 +47,11 @@
             let pointerData: MouseEvent | Touch;
             const isTouch = event instanceof TouchEvent;
 
+            // Only respond to touch events while actively touching
+            if (isTouch && !isTouching) {
+                return;
+            }
+
             if (isTouch) {
                 if (event.touches.length > 0) {
                     pointerData = event.touches[0];
@@ -86,10 +91,10 @@
             requestAnimationFrame(() => {
                 bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
             });
-            // Delay resetting isTouching to prevent click events from quick taps
+            // Small delay to prevent click events from quick taps
             setTimeout(() => {
                 isTouching = false;
-            }, 300);
+            }, 100);
         };
 
         window.addEventListener('mousemove', onPointerMove);
