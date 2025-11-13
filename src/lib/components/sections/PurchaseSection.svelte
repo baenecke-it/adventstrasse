@@ -90,10 +90,10 @@
         };
 
         window.addEventListener('mousemove', onPointerMove);
-        window.addEventListener('touchstart', onTouchStart);
-        window.addEventListener('touchmove', onPointerMove);
-        window.addEventListener('touchend', onTouchEnd);
-        window.addEventListener('touchcancel', onTouchEnd);
+        purchaseSection.addEventListener('touchstart', onTouchStart, { passive: true });
+        purchaseSection.addEventListener('touchmove', onPointerMove, { passive: true });
+        purchaseSection.addEventListener('touchend', onTouchEnd);
+        purchaseSection.addEventListener('touchcancel', onTouchEnd);
 
         bookEl.addEventListener('click', () => {
             if (!bookRef) return;
