@@ -57,7 +57,7 @@
                 pointerData = event;
             }
 
-            const rect = purchaseSection.getBoundingClientRect();
+            const rect = bookEl.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
 
