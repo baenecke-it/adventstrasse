@@ -83,10 +83,13 @@
         // Reset book rotation when touch ends (finger lifted)
         const onTouchEnd = () => {
             if (!bookRef) return;
-            isTouching = false;
             requestAnimationFrame(() => {
                 bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
             });
+            // Delay resetting isTouching to prevent click events from quick taps
+            setTimeout(() => {
+                isTouching = false;
+            }, 300);
         };
 
         window.addEventListener('mousemove', onPointerMove);
