@@ -12,7 +12,8 @@
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		height: 42lvh;
+		min-height: 42svh;
+		height: 50svh;
 		background: linear-gradient(to top, #232733 0%, #3c4150 40%, transparent 100%);
 		clip-path: polygon(
 			0% 100%,
@@ -42,7 +43,7 @@
 		position: fixed;
 		width: 56px;
 		height: 56px;
-		bottom: 22lvh;
+		bottom: 22svh;
 		right: 9%;
 		border-radius: 6px;
 		background: linear-gradient(180deg, #fff3c0 0%, #ffdd88 40%, #ffdf9f 100%);
@@ -101,7 +102,7 @@
 		.window {
 			width: 44px;
 			height: 44px;
-			bottom: 18lvh;
+			bottom: 18svh;
 			right: 6%;
 		}
 	}

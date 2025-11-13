@@ -34,7 +34,7 @@
 
 	#main {
 		color: #fff;
-		min-height: 100lvh;
+		min-height: 100svh;
 		background: radial-gradient(ellipse at bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
 		position: relative;
 		display: flex;
