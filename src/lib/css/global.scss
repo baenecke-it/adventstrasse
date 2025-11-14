@@ -1,83 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700&display=swap');
 
 @font-face {
-	font-family: 'Balothine';
-	font-style: normal;
-	font-weight: 400;
-	src:
-		local('Balothine'),
-		url('/fonts/balothine-font/Balothine.otf') format('opentype'),
-		url('/fonts/balothine-font/Balothine.ttf') format('truetype');
+  font-family: 'Balothine';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Balothine"),
+  url("/fonts/balothine-font/Balothine.otf") format("opentype"),
+  url("/fonts/balothine-font/Balothine.ttf") format("truetype");
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-	position: relative;
-	scroll-behavior: smooth;
-	margin: 0;
-	overflow-x: hidden;
-	min-height: 100dvh;
+  position: relative;
+  scroll-behavior: smooth;
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100dvh;
 
-	font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: 'Balothine', serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Balothine', serif;
 }
 
 h1 {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 
 h2 {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h3 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 section {
-	z-index: 1;
+  z-index: 1;
 }
 
 /* Accessibility: Skip to content link */
 .skip-to-content {
-	position: absolute;
-	left: -9999px;
-	z-index: 999;
-	padding: 1rem 1.5rem;
-	background-color: var(--accent, rgba(255, 225, 140, 0.95));
-	color: #000;
-	text-decoration: none;
-	border-radius: 0 0 4px 0;
-	font-weight: 600;
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem 1.5rem;
+  background-color: var(--accent, rgba(255, 225, 140, 0.95));
+  color: #000;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
 }
 
 .skip-to-content:focus {
-	left: 0;
-	top: 0;
+  left: 0;
+  top: 0;
 }
 
 /* Accessibility: Improved focus indicators */
 *:focus-visible {
-	outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
-	outline-offset: 2px;
-	border-radius: 2px;
+  outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Ensure buttons and links have visible focus states */
 button:focus-visible,
 a:focus-visible {
-	outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
-	outline-offset: 2px;
+  outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
+  outline-offset: 2px;
 }
