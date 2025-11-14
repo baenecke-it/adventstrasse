@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-    <title>Adventstraße – Der Düsterweg erwacht</title>
+    <title>Adventstraße – Das Geheimnis der 24 roten Briefe</title>
 </svelte:head>
 
 
