@@ -4,19 +4,19 @@
     export let name = "Dorothea Schaller";
     export let role = "Autorin";
     export let bio = "Dorothea Schaller wurde 1994 in Illertissen geboren. Nach ihrem Abitur und einer Ausbildung im Bereich\n" +
-        "        Tourismusmanagement arbeitete sie für einige Jahre in der Gastronomie und Eventbranche in der Schweiz. Dort\n" +
-        "        entdeckte sie ihre Liebe zum Schreiben. Neben dem Lesen spannender Bücher und dem Organisieren spektakulärer\n" +
-        "        Events liebt Dorothea Schal-ler es zu reisen. Während einer Rundreise durch Neuseeland und Indo-nesien,\n" +
-        "        entstanden ihre ersten Kinderbuchillustrationen. Die Idee für ihr Buch „die Adventstraße“ kam Dorothea\n" +
-        "        Schaller\n" +
-        "        bei einer Zugfahrt ent-lang des Zürichsees.\n" +
-        "        Schon seit Kindertagen ist für sie die Vorweihnachtszeit eine der schöns-ten Zeiten im Jahr. Der erste\n" +
-        "        Schnee,\n" +
-        "        die vielen Lichter und die alten Ri-tuale, wie das Plätzchen backen und Wohnung schmücken, machen für sie\n" +
-        "        den\n" +
-        "        Advent zu etwas ganz Besonderem. Mit ihrem Buch schaffte sie es, eine neue Tradition in ihrer Familie zu\n" +
-        "        etablieren. An jedem Abend im Advent werden nun die Lichter gedimmt, Plätzchen bereitgestellt und der\n" +
-        "        Adventskranz entzündet. Dann setzen sich alle zusammen und lauschen einer neuen Adventsgeschichte";
+        " Tourismusmanagement arbeitete sie für einige Jahre in der Gastronomie und Eventbranche in der Schweiz. Dort\n" +
+        " entdeckte sie ihre Liebe zum Schreiben. Neben dem Lesen spannender Bücher und dem Organisieren spektakulärer\n" +
+        " Events liebt Dorothea Schaller es zu reisen. Während einer Rundreise durch Neuseeland und Indonesien,\n" +
+        " entstanden ihre ersten Kinderbuchillustrationen. Die Idee für ihr Buch „die Adventstraße“ kam Dorothea\n" +
+        " Schaller\n" +
+        " bei einer Zugfahrt entlang des Zürichsees.\n" +
+        " Schon seit Kindertagen ist für sie die Vorweihnachtszeit eine der schöns-ten Zeiten im Jahr. Der erste\n" +
+        " Schnee,\n" +
+        " die vielen Lichter und die alten Rituale, wie das Plätzchen backen und Wohnung schmücken, machen für sie\n" +
+        " den\n" +
+        " Advent zu etwas ganz Besonderem. Mit ihrem Buch schaffte sie es, eine neue Tradition in ihrer Familie zu\n" +
+        " etablieren. An jedem Abend im Advent werden nun die Lichter gedimmt, Plätzchen bereitgestellt und der\n" +
+        " Adventskranz entzündet. Dann setzen sich alle zusammen und lauschen einer neuen Adventsgeschichte";
 </script>
 
 <section class="author-section" aria-label="Über die Autorin">
