@@ -10,8 +10,8 @@
     		<h2>Angaben gemäß § 5 TMG</h2>
     		<p>
     			Dorothea Schaller<br />
-    			[Adresse]<br />
-    			[PLZ, Ort]
+    			Alpenstraße 29<br />
+       87727 Babenhausen
     		</p>
     	</section>
 
