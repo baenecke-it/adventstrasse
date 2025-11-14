@@ -10,7 +10,7 @@
         " entstanden ihre ersten Kinderbuchillustrationen. Die Idee für ihr Buch „die Adventstraße“ kam Dorothea\n" +
         " Schaller\n" +
         " bei einer Zugfahrt entlang des Zürichsees.\n" +
-        " Schon seit Kindertagen ist für sie die Vorweihnachtszeit eine der schöns-ten Zeiten im Jahr. Der erste\n" +
+        " Schon seit Kindertagen ist für sie die Vorweihnachtszeit eine der schönsten Zeiten im Jahr. Der erste\n" +
         " Schnee,\n" +
         " die vielen Lichter und die alten Rituale, wie das Plätzchen backen und Wohnung schmücken, machen für sie\n" +
         " den\n" +
