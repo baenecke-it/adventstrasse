@@ -1,5 +1,6 @@
 <svelte:head>
     <title>Impressum – Adventstraße</title>
+    <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <section class="impressum-page">
