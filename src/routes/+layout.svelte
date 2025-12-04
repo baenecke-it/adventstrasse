@@ -1,6 +1,5 @@
 <script lang="ts">
     import '$lib/css/global.scss';
-    import favicon from '$lib/assets/favicon.png';
     import Footer from '$lib/components/Footer.svelte';
     import Stars from "$lib/components/Stars.svelte";
     import Roofs from "$lib/components/Roofs.svelte";
