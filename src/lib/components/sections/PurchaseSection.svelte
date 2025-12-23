@@ -47,6 +47,11 @@
             let pointerData: MouseEvent | Touch;
             const isTouch = event instanceof TouchEvent;
 
+            // Only respond to touch events while actively touching
+            if (isTouch && !isTouching) {
+                return;
+            }
+
             if (isTouch) {
                 if (event.touches.length > 0) {
                     pointerData = event.touches[0];
@@ -83,10 +88,13 @@
         // Reset book rotation when touch ends (finger lifted)
         const onTouchEnd = () => {
             if (!bookRef) return;
-            isTouching = false;
             requestAnimationFrame(() => {
                 bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
             });
+            // Small delay to prevent click events from quick taps
+            setTimeout(() => {
+                isTouching = false;
+            }, 100);
         };
 
         window.addEventListener('mousemove', onPointerMove);
