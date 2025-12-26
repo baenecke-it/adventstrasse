@@ -24,6 +24,13 @@
     	</section>
 
     	<section>
+    		<h2>Webentwicklung und Design</h2>
+    		<p>
+    		 <a href="https://github.com/frankbits/">Frank Bänecke</a>
+    		</p>
+    	</section>
+
+    	<section>
     		<h2>Haftungsausschluss</h2>
 
     		<h3>Haftung für Inhalte</h3>
