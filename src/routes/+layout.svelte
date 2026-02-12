@@ -17,11 +17,15 @@
     <link rel="manifest" href="/site.webmanifest" />
 </svelte:head>
 
+<a href="#main-content" class="skip-to-content">Zum Hauptinhalt springen</a>
+
 <main id="main">
     <Stars></Stars>
     <Snow></Snow>
     <Roofs></Roofs>
-    {@render children()}
+    <div id="main-content">
+        {@render children()}
+    </div>
 </main>
 <Footer/>
 

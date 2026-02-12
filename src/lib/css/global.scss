@@ -43,3 +43,35 @@ h3 {
 section {
   z-index: 1;
 }
+
+/* Accessibility: Skip to content link */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem 1.5rem;
+  background-color: var(--accent, rgba(255, 225, 140, 0.95));
+  color: #000;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  top: 0;
+}
+
+/* Accessibility: Improved focus indicators */
+*:focus-visible {
+  outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Ensure buttons and links have visible focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
+  outline-offset: 2px;
+}

@@ -30,8 +30,9 @@
 
     onMount(() => {
         const purchaseSection = document.querySelector<HTMLElement>('.purchase-section');
-        const bookEl = purchaseSection?.querySelector<HTMLElement>('.book');
-        if (!purchaseSection || !bookEl) return;
+        const bookWrapper = purchaseSection?.querySelector<HTMLElement>('[role="button"]');
+        const bookEl = bookWrapper?.querySelector<HTMLElement>('.book');
+        if (!purchaseSection || !bookEl || !bookWrapper) return;
 
         function clamp(num: number, min: number, max: number): number {
             return Math.min(Math.max(num, min), max);
@@ -95,7 +96,7 @@
         purchaseSection.addEventListener('touchend', onTouchEnd);
         purchaseSection.addEventListener('touchcancel', onTouchEnd);
 
-        bookEl.addEventListener('click', () => {
+        bookWrapper.addEventListener('click', () => {
             if (!bookRef) return;
             // Ignore clicks that happen during touch (quick taps)
             if (isTouching) return;
@@ -105,20 +106,34 @@
                 bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
             })
         });
+
+        // Keyboard accessibility: Allow Enter and Space to flip book
+        bookWrapper.addEventListener('keydown', (event: KeyboardEvent) => {
+            if (!bookRef) return;
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                front = !front;
+                requestAnimationFrame(() => {
+                    bookRef.setRotation(front ? defaultRotation : 180 + defaultRotation, 0, 0, true);
+                });
+            }
+        });
     });
 </script>
 
 <section class="purchase-section" aria-label="Buch kaufen">
-    <Book
-            bind:this={bookRef}
-            coverImage="{book.coverImage}"
-            coverImageAlt="Cover: {book.title}"
-            backCoverImage="{book.backCoverImage}"
-            backCoverImageAlt="Back Cover: {book.title}"
-            spineImage="{book.spineImage}"
-            depth={20}
-            transition={false}
-    ></Book>
+    <div tabindex="0" role="button" aria-label="Buch umdrehen (Enter oder Leertaste drücken)">
+        <Book
+                bind:this={bookRef}
+                coverImage="{book.coverImage}"
+                coverImageAlt="Cover: {book.title}"
+                backCoverImage="{book.backCoverImage}"
+                backCoverImageAlt="Back Cover: {book.title}"
+                spineImage="{book.spineImage}"
+                depth={20}
+                transition={false}
+        ></Book>
+    </div>
 
     <aside class="info">
         <h1 class="book-title">{book.title}</h1>
@@ -175,8 +190,19 @@
             /*}*/
         }
 
-        :global(.book) {
+        [role="button"] {
             cursor: pointer;
+            outline: none;
+        }
+
+        [role="button"]:focus-visible {
+            outline: 3px solid var(--accent, rgba(255, 225, 140, 0.95));
+            outline-offset: 8px;
+            border-radius: 4px;
+        }
+
+        :global(.book) {
+            pointer-events: none;
         }
 
         .info {

@@ -2,7 +2,7 @@
     <p class="copyright">
         © {new Date().getFullYear()} Dorothea Schaller
     </p>
-    <nav class="footer-nav">
+    <nav class="footer-nav" aria-label="Rechtliches">
         <a href="/impressum">Impressum</a>
     </nav>
 </footer>

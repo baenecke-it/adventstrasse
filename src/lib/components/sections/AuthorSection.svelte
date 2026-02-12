@@ -21,7 +21,7 @@
 
 <section class="author-section" aria-label="Über die Autorin">
     <h2 class="section-title">Über mich</h2>
-    <article class="author-card" role="article">
+    <article class="author-card">
         <figure class="author-figure">
             <img src={authorImage} alt={name} class="author-image"/>
             <figcaption class="author-meta">
